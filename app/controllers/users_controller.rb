@@ -27,8 +27,6 @@ class UsersController < ApplicationController
     end
   end
 
-  include SessionsHelper
-  
   private
   
   def user_params
