@@ -11,9 +11,12 @@
 
   <body>
     <header>
-      <li class><%= link_to 'Signup', signup_path, class: 'nav-link' %></li>
-      <li class=><%= link_to 'Login', login_path, class: 'nav-link' %></li>
-      <li class=><%= link_to 'Logout', logout_path, method: :delete %></li>
+      <% if logged_in? %>
+        <li class><%= link_to 'Logout', logout_path, method: :delete %></li>
+      <% else %>
+        <li class><%= link_to 'Signup', signup_path, class: 'nav-link' %></li>
+        <li class><%= link_to 'Login', login_path, class: 'nav-link' %></li>
+      <% end %>
     </header>
     <%= render 'layouts/flash_tasks' %>
     <%= yield %>
